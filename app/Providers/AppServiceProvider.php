@@ -21,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->configureDefaults();
         $this->configureMaileroo();
+
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
     
     protected function configureMaileroo(): void

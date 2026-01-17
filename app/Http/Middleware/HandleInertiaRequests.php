@@ -43,7 +43,7 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'name' => config('app.name'),
-            'url' => URL::to($request->path()),
+            'url' => $request->fullUrl(),
             'locale' => $locale,
             'translations' => [
                 'common' => \Illuminate\Support\Facades\Lang::get('common'),
